@@ -215,7 +215,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mouth" translatesAutoresizingMaskIntoConstraints="NO" id="kPS-zn-ijg">
                                 <rect key="frame" x="99" y="610" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="ice" translatesAutoresizingMaskIntoConstraints="NO" id="MyT-yu-lff">
                                 <rect key="frame" x="265" y="110" width="100" height="100"/>
@@ -246,6 +246,14 @@
                         <color key="backgroundColor" red="0.96848052740000001" green="0.91410398829999995" blue="0.67861063210000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="Inb-3n-cr5"/>
+                    <connections>
+                        <outlet property="IceImageView" destination="MyT-yu-lff" id="j9g-tu-4sS"/>
+                        <outlet property="bananaImageView" destination="fbN-qT-utB" id="kcN-kX-iFc"/>
+                        <outlet property="cherryImageView" destination="UvW-WQ-AMA" id="Bjv-Vs-woP"/>
+                        <outlet property="ninjinImageView" destination="4PI-8k-y5H" id="ixe-Il-B00"/>
+                        <outlet property="onigiriImageView" destination="geK-Nd-5vD" id="hGk-bz-gb2"/>
+                        <outlet property="tomatoImageView" destination="cg1-Mu-END" id="bPc-jb-iAY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZN-SC-bFm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
