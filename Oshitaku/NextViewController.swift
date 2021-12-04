@@ -141,8 +141,8 @@ class NextViewController: UIViewController {
              print("location =\(location)")
              
              // 移動量を計算
-             let deltaX: CGFloat = CGFloat((location.x) - (startPoint!.x+50))
-             let deltaY: CGFloat = CGFloat((location.y) - (startPoint!.y+150))
+             let deltaX: CGFloat = CGFloat((location.x) - (startPoint!.x))
+             let deltaY: CGFloat = CGFloat((location.y) - (startPoint!.y))
             
              print("deltaX: \(deltaX), deltaY: \(deltaY)")
             
@@ -163,7 +163,30 @@ class NextViewController: UIViewController {
     }
      
     // ドラッグ終了
+    //https://teratail.com/questions/255947?link=qa_related_pc
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        /*
+        print("width: ", scrWidth)
+        print("height: ", scrHeight)
+        print("center.x: ", coin.center.x)
+        print("center.y: ", coin.center.y)
+
+        if coin.center.x > scrWidth {
+        coin.removeFromSuperview()
+        coinCount = coinCount - 1
+        } else if 0 >= coin.center.x {
+        coin.removeFromSuperview()
+        coinCount = coinCount - 1
+        }
+
+        if coin.center.y > scrHeight {
+        coin.removeFromSuperview()
+        coinCount = coinCount - 1
+        } else if 0 >= coin.center.y {
+        coin.removeFromSuperview()
+        coinCount = coinCount - 1
+        }*/
+        
         
     }
     override func didReceiveMemoryWarning() {
