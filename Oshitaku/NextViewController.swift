@@ -75,7 +75,7 @@ class NextViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touchesBegan")
         
-        // タッチをやり始めた座標を取得
+        // タッチをやり始めた座標を取得→全ての画像に効く？？
         let touch: UITouch = touches.first!
 
         startPoint =  touch.location(in: bananaImageView)
@@ -87,6 +87,7 @@ class NextViewController: UIViewController {
         bananaImageNowPoint = self.bananaImageView.frame.origin
         cherryImageNowPoint = self.cherryImageView.frame.origin
         print("bananaImageNowPoint =\(String(describing: bananaImageNowPoint) )")
+        print("cherryImageNowPoint =\(String(describing: cherryImageNowPoint) )")
 
            
         let MinX = bananaImageNowPoint!.x
@@ -106,8 +107,8 @@ class NextViewController: UIViewController {
         print(startPoint!.x)
         print(startPoint!.y)
 
-        //print(startPoint2!.x)
-        //print(startPoint2!.y)
+        print(startPoint2!.x)
+        print(startPoint2!.y)
 
             
             // イメージの範囲内をタッチした時のみisImageInsideをtrueにする
@@ -115,16 +116,18 @@ class NextViewController: UIViewController {
                 print("Inside of  banana")
                 isImageInsidebanana = true
             }
-            else {
-                print("Outside of banana")
-                isImageInsidebanana = false
-            }
-// イメージの範囲内をタッチした時のみisImageInsideをtrueにする
-        if (MinX <= (startPoint2!.x+250) && (startPoint2!.x+250) <= MaxX) && (MinY <= (startPoint2!.y+150) && (startPoint2!.y+150) <= MaxY) {
+           
+        // イメージの範囲内をタッチした時のみisImageInsideをtrueにする
+            else if (MinX <= (startPoint2!.x+250) && (startPoint2!.x+250) <= MaxX) && (MinY <= (startPoint2!.y+150) && (startPoint2!.y+150) <= MaxY) {
                 print("Inside of cherry")
                 isImageInsidecherry = true
                 }
+        
+        
             else {
+                print("Outside of banana")
+                isImageInsidebanana = false
+                
                 print("Outside of cherry")
                 isImageInsidecherry = false
                 }
@@ -142,8 +145,8 @@ class NextViewController: UIViewController {
              print("location =\(location)")
              
              // 移動量を計算
-             let deltaX: CGFloat = CGFloat((location.x) - (startPoint!.x))
-             let deltaY: CGFloat = CGFloat((location.y) - (startPoint!.y))
+            let deltaX: CGFloat = CGFloat((location.x) - (startPoint!.x+50))
+            let deltaY: CGFloat = CGFloat((location.y) - (startPoint!.y+150))
             
              print("deltaX: \(deltaX), deltaY: \(deltaY)")
             
@@ -153,7 +156,7 @@ class NextViewController: UIViewController {
 
             }
         
-        if isImageInsidecherry == true {
+         else if isImageInsidecherry == true {
              // タッチ中の座標を取得
             let touch: UITouch = touches.first!
             let location: CGPoint = touch.location(in: self.view)
@@ -162,8 +165,8 @@ class NextViewController: UIViewController {
              
              // 移動量を計算
             
-            let deltaX2: CGFloat = CGFloat(location.x - startPoint2!.x)
-            let deltaY2: CGFloat = CGFloat(location.y - startPoint2!.y)
+             let deltaX2: CGFloat = CGFloat((location.x) - (startPoint2!.x+250))
+             let deltaY2: CGFloat = CGFloat((location.y) - (startPoint2!.y+150))
              
              // イメージを移動
             
