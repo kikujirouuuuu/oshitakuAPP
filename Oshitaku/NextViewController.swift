@@ -111,14 +111,14 @@ class NextViewController: UIViewController {
         print(startPoint2!.y)
 
             
-            // イメージの範囲内をタッチした時のみisImageInsideをtrueにする
+            //  bananaイメージの範囲内をタッチした時のみisImageInsideをtrueにする
             if (MinX <= (startPoint!.x+50) && (startPoint!.x+50) <= MaxX) && (MinY <= (startPoint!.y+150) && (startPoint!.y+150) <= MaxY) {
                 print("Inside of  banana")
                 isImageInsidebanana = true
             }
            
-        // イメージの範囲内をタッチした時のみisImageInsideをtrueにする
-            else if (MinX <= (startPoint2!.x+250) && (startPoint2!.x+250) <= MaxX) && (MinY <= (startPoint2!.y+150) && (startPoint2!.y+150) <= MaxY) {
+        // cherryイメージの範囲内をタッチした時のみisImageInsideをtrueにする
+            else if (MinX2 <= (startPoint2!.x+250) && (startPoint2!.x+250) <= MaxX2) && (MinY2 <= (startPoint2!.y+150) && (startPoint2!.y+150) <= MaxY2) {
                 print("Inside of cherry")
                 isImageInsidecherry = true
                 }
@@ -182,28 +182,9 @@ class NextViewController: UIViewController {
      
     // ドラッグ終了
     //https://teratail.com/questions/255947?link=qa_related_pc
+    //https://teratail.com/questions/32977
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        /*
-        print("width: ", scrWidth)
-        print("height: ", scrHeight)
-        print("center.x: ", coin.center.x)
-        print("center.y: ", coin.center.y)
-
-        if coin.center.x > scrWidth {
-        coin.removeFromSuperview()
-        coinCount = coinCount - 1
-        } else if 0 >= coin.center.x {
-        coin.removeFromSuperview()
-        coinCount = coinCount - 1
-        }
-
-        if coin.center.y > scrHeight {
-        coin.removeFromSuperview()
-        coinCount = coinCount - 1
-        } else if 0 >= coin.center.y {
-        coin.removeFromSuperview()
-        coinCount = coinCount - 1
-        }*/
+        
         
         
     }
