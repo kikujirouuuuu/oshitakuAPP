@@ -42,6 +42,8 @@ class NextViewController: UIViewController {
     var isImageInsidebanana: Bool?
     var isImageInsidecherry: Bool?
     
+    var bananaLastlocation : CGPoint?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,21 +108,39 @@ class NextViewController: UIViewController {
 
         print(startPoint!.x)
         print(startPoint!.y)
+        
+        
+        
+        
+        
+        
+            if (bananaLastlocation! == nil) {
+                print("bananaLastLocation =\(bananaLastlocation!.x)")
+                print("bananaLastLocation =\(bananaLastlocation!.y)")
+                }
+        
+        
 
-        print(startPoint2!.x)
-        print(startPoint2!.y)
+        //print(startPoint2!.x)
+        //print(startPoint2!.y)
 
             
             //  bananaイメージの範囲内をタッチした時のみisImageInsideをtrueにする
-            if (MinX <= (startPoint!.x+50) && (startPoint!.x+50) <= MaxX) && (MinY <= (startPoint!.y+150) && (startPoint!.y+150) <= MaxY) {
+            if  ( (MinX <= (startPoint!.x+50) && (startPoint!.x+50) <= MaxX) && (MinY <= (startPoint!.y+150) && (startPoint!.y+150) <= MaxY) || (MinX <= (bananaLastlocation!.x+50) && (bananaLastlocation!.x+50) <= MaxX) && (MinY <= (bananaLastlocation!.y+150) && (bananaLastlocation!.y+150) <= MaxY))
+        
+                {
                 print("Inside of  banana")
                 isImageInsidebanana = true
-            }
+                isImageInsidecherry = false
+                
+                }
            
         // cherryイメージの範囲内をタッチした時のみisImageInsideをtrueにする
             else if (MinX2 <= (startPoint2!.x+250) && (startPoint2!.x+250) <= MaxX2) && (MinY2 <= (startPoint2!.y+150) && (startPoint2!.y+150) <= MaxY2) {
                 print("Inside of cherry")
                 isImageInsidecherry = true
+                isImageInsidebanana = false
+                
                 }
         
         
@@ -141,6 +161,9 @@ class NextViewController: UIViewController {
              // タッチ中の座標を取得
             let touch: UITouch = touches.first!
             let location: CGPoint = touch.location(in: self.view)
+            
+           
+            
              print("bananaタッチ")
              print("location =\(location)")
              
@@ -153,6 +176,12 @@ class NextViewController: UIViewController {
              // イメージを移動
              self.bananaImageView.frame.origin.x = bananaImageNowPoint!.x + deltaX
              self.bananaImageView.frame.origin.y = bananaImageNowPoint!.y + deltaY
+            
+            //再度タッチした位置の座標
+            bananaLastlocation!.x = self.bananaImageView.frame.origin.x
+            bananaLastlocation!.y = self.bananaImageView.frame.origin.y
+
+            
 
             }
         
