@@ -250,6 +250,7 @@
                         <outlet property="IceImageView" destination="MyT-yu-lff" id="j9g-tu-4sS"/>
                         <outlet property="bananaImageView" destination="fbN-qT-utB" id="kcN-kX-iFc"/>
                         <outlet property="cherryImageView" destination="UvW-WQ-AMA" id="Bjv-Vs-woP"/>
+                        <outlet property="mouth" destination="kPS-zn-ijg" id="vvd-Aw-cUo"/>
                         <outlet property="ninjinImageView" destination="4PI-8k-y5H" id="ixe-Il-B00"/>
                         <outlet property="onigiriImageView" destination="geK-Nd-5vD" id="hGk-bz-gb2"/>
                         <outlet property="tomatoImageView" destination="cg1-Mu-END" id="bPc-jb-iAY"/>
