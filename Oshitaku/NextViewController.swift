@@ -44,11 +44,17 @@ class NextViewController: UIViewController {
     var isImageInsidebanana: Bool?
     var isImageInsidecherry: Bool?
     
+    var isImageInsidebananaSecond: Bool?
+    var isImageInsidecherrySecond: Bool?
+    
     var bananaLastlocation : CGPoint?
     var cherryLastlocaction : CGPoint?
     
     var deltaX : CGFloat?
     var deltaY : CGFloat?
+    
+    var deltaX2 : CGFloat?
+    var deltaY2 : CGFloat?
     
     
     
@@ -97,8 +103,8 @@ class NextViewController: UIViewController {
         startPoint =  touch.location(in: bananaImageView)
         startPoint2 =  touch.location(in: cherryImageView)
         
-        print("startPont=\(startPoint!.x)")
-        print("startPont=\(startPoint!.y)")        //println("startPoint =\(startPoint)")
+        print("startPont.x=\(startPoint!.x)")
+        print("startPont.y=\(startPoint!.y)")        //println("startPoint =\(startPoint)")
         
         // タッチをやり始めた時のイメージの座標を取得
         bananaImageNowPoint = self.bananaImageView.frame.origin
@@ -109,7 +115,7 @@ class NextViewController: UIViewController {
      
         
         
-        //bananaの最初の範囲（固定値）
+        //bananaの最初の範囲
         let MinX = bananaImageNowPoint!.x
         print("MinX =\(MinX)")
         let MaxX = bananaImageNowPoint!.x + self.bananaImageView!.frame.width
@@ -119,60 +125,25 @@ class NextViewController: UIViewController {
         let MaxY = bananaImageNowPoint!.y + self.bananaImageView!.frame.height
         print("MaxY =\(MaxY)")
         
-
         
         //cherrry
         let MinX2 = cherryImageNowPoint!.x
         let MaxX2 = cherryImageNowPoint!.x + self.cherryImageView!.frame.width
         let MinY2 = cherryImageNowPoint!.y
         let MaxY2 = cherryImageNowPoint!.y + self.cherryImageView!.frame.height
-
-        
-        
         
         //  bananaイメージの範囲内をタッチした時のみisImageInsideをtrueにする
-            if  ((MinX <= (startPoint!.x+50) && (startPoint!.x+50) <= MaxX) && (MinY <= (startPoint!.y+150) && (startPoint!.y+150) <= MaxY))
-    
-                {
+            if  ( (MinX <= (startPoint!.x+50) && (startPoint!.x+50) <= MaxX) )
+                   && ( (MinY <= (startPoint!.y+150) && (startPoint!.y+150) <= MaxY) ) {
                 print("Inside of  banana")
                     isImageInsidebanana = true
                     isImageInsidecherry = false
-                }
-        
-        
-        //bananaLastlocationに数値が入った場合（動かすたびに変動）
-            if bananaLastlocation != nil{
-            print("bananaLastLocation =\(bananaLastlocation!.x)")
-            print("bananaLastLocation =\(bananaLastlocation!.y)")
-            
-                let  baMinX = MinX + deltaX!
-                print("baMinX =\(baMinX)")
-                let baMaxX = MaxX + deltaX!
-                print("baMaxX =\(baMaxX)")
-                let baMinY = MinY + deltaY!
-                print("baMinY =\(baMinY)")
-                let baMaxY = MaxY + deltaY!
-                print("baMaxY =\(baMaxY)")
                 
-                //  bananaイメージの範囲内をタッチした時のみisImageInsideをtrueにする
-                    if  ( (baMinX <= (startPoint!.x+50) && (startPoint!.x+50) <= baMaxX) && (baMinY <= (startPoint!.y+150) && (startPoint!.y+150) <= baMaxY) )
-            
-                        {
-                        print("Inside of  banana")
-                            isImageInsidebanana = true
-                            isImageInsidecherry = false
-                        }
-                
+                print("deltaX: \(String(describing: deltaX))")
+                print("deltaY: \(String(describing: deltaY))")
             }
+           
         
-            if cherryLastlocaction != nil{
-            print("cherryLastLocation =\(cherryLastlocaction!.x)")
-            print("cherryLastLocation =\(cherryLastlocaction!.y)")
-            
-            }
-        
-
-       
         // cherryイメージの範囲内をタッチした時のみisImageInsideをtrueにする
             else if ((MinX2 <= (startPoint2!.x+250) && (startPoint2!.x+250) <= MaxX2) && (MinY2 <= (startPoint2!.y+150) && (startPoint2!.y+150) <= MaxY2)){
                     print("Inside of cherry")
@@ -180,6 +151,37 @@ class NextViewController: UIViewController {
                     isImageInsidebanana = false
             
                 }
+                
+
+            //　２回目以降のタップでbananaイメージの範囲内をタッチした時のみisImageInsideをtrueにする
+            else  if  ( (isImageInsidebanana == false) &&
+                        (isImageInsidebanana == false) &&
+                        ((deltaX != nil) || (deltaY != nil)) )
+                    {print("falseの場合")
+                     let  baMinX = MinX - deltaX!
+                     print("baMinX =\(baMinX)")
+                     let baMaxX = MaxX - deltaX!
+                     print("baMaxX =\(baMaxX)")
+                     let baMinY = MinY - deltaY!
+                     print("baMinY =\(baMinY)")
+                     let baMaxY = MaxY - deltaY!
+                     print("baMaxY =\(baMaxY)")
+                 
+                      if  ( (baMinX <= (startPoint!.x+50) && (startPoint!.x+50) <= baMaxX) )
+                          && ( (baMinY <= (startPoint!.y+150) && (startPoint!.y+150) <= baMaxY) ) {
+                       print("Inside of  banana Second")
+                           isImageInsidebananaSecond = true
+                           isImageInsidecherrySecond = false
+                      }
+                  }
+
+
+       
+            else if bananaLastlocation != nil{
+                print ("bananaLastlocation.x\(String(describing: bananaLastlocation?.x))")
+                print ("bananaLastlocation.y\(String(describing: bananaLastlocation?.y))")
+            }
+        
     
     
             else {
@@ -216,21 +218,41 @@ class NextViewController: UIViewController {
              // イメージを移動
             self.bananaImageView.frame.origin.x = bananaImageNowPoint!.x + deltaX!
             self.bananaImageView.frame.origin.y = bananaImageNowPoint!.y + deltaY!
-            
-                if deltaX != nil {
-                    //再度タッチした位置の座標
-                    bananaLastlocation!.x = bananaImageNowPoint!.x + deltaX!
-                    }
-                else if deltaY != nil{
-                //再度タッチした位置の座標
-                    bananaLastlocation!.y = bananaImageNowPoint!.y + deltaY!
-                    }
-                    else {print("deltaNil")}
-            
-
-            
-
+            /*
+            if ((deltaX != nil) && (deltaY != nil)){
+                
+                bananaLastlocation!.x = bananaImageNowPoint!.x + deltaX!
+                bananaLastlocation!.y = bananaImageNowPoint!.y + deltaY!}*/
+             
+ 
             }
+        
+        else if isImageInsidebananaSecond == true {
+            // タッチ中の座標を取得
+           let touch: UITouch = touches.first!
+           let location: CGPoint = touch.location(in: self.view)
+           
+            print("bananaタッチsecond")
+            print("location =\(location)")
+            // 移動量を計算
+            deltaX = location.x - (startPoint!.x+50)
+            deltaY = location.y - (startPoint!.y+150)
+            /* 移動量を計算
+           deltaX = location.x - (bananaLastlocation!.x + 50)
+           deltaY = location.y - (bananaLastlocation!.y + 150)*/
+           
+            print("deltaX: \(deltaX), deltaY: \(deltaY)")
+            
+            self.bananaImageView.frame.origin.x = bananaImageNowPoint!.x + deltaX! - 150
+            self.bananaImageView.frame.origin.y = bananaImageNowPoint!.y + deltaY! - 250
+             
+            
+            
+            
+        }
+        
+        
+        
         
          else if isImageInsidecherry == true {
              
@@ -242,32 +264,15 @@ class NextViewController: UIViewController {
              
              // 移動量を計算
             
-             let deltaX2: CGFloat = CGFloat((location2.x) - (startPoint2!.x+250))
-             let deltaY2: CGFloat = CGFloat((location2.y) - (startPoint2!.y+150))
+             deltaX2 = location2.x - (startPoint2!.x+250)
+             deltaY2 = location2.y - (startPoint2!.y+150)
              
              // イメージを移動
             
-             self.cherryImageView.frame.origin.x = cherryImageNowPoint!.x + deltaX2
-             self.cherryImageView.frame.origin.y = cherryImageNowPoint!.y + deltaY2
+             self.cherryImageView.frame.origin.x = cherryImageNowPoint!.x + deltaX2!
+             self.cherryImageView.frame.origin.y = cherryImageNowPoint!.y + deltaY2!
              
-             
-             cherryLastlocaction!.x = cherryImageNowPoint!.x + deltaX2
-             cherryLastlocaction!.y = cherryImageNowPoint!.y + deltaY2
-             
-             /*
-             let chMinX2 = cherryLastlocaction!.x
-             let chMaxX2 = cherryLastlocaction!.x + self.cherryImageView!.frame.width
-             let chMinY2 = cherryLastlocaction!.y
-             let chMaxY2 = cherryLastlocaction!.y + self.cherryImageView!.frame.height
-             
-                if ((chMinX2 <= (startPoint2!.x+250) && (startPoint2!.x+250) <= chMaxX2) && (chMinY2 <= (startPoint2!.y+150) && (startPoint2!.y+150) <= chMaxY2) ){
-                         print("Inside of cherry")
-                         isImageInsidecherry = true
-                         isImageInsidebanana = false
-                 
-                     }*/
-             
-             
+ 
              
             }
         
