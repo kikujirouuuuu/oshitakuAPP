@@ -126,18 +126,49 @@ class NextViewController: UIViewController {
         
         
     
-        
+        if bananaImageView != nil{
+            // タッチをやり始めた時のイメージの座標を取得
+            bananaImageNowPoint = self.bananaImageView.frame.origin
+            print("bananaImageNowPoint =\(String(describing: bananaImageNowPoint) )")
+            
+            //bananaの範囲
+            let MinX = bananaImageNowPoint!.x
+            print("MinX =\(MinX)")
+            let MaxX = bananaImageNowPoint!.x + self.bananaImageView!.frame.width
+            print("MaxX =\(MaxX)")
+            let MinY = bananaImageNowPoint!.y
+            print("MinY =\(MinY)")
+            let MaxY = bananaImageNowPoint!.y + self.bananaImageView!.frame.height
+            print("MaxY =\(MaxY)")
+            
+            //  bananaイメージの範囲内をタッチした時のみisImageInsideをtrueにする
+                if  ( (MinX <= (startPoint!.x) && (startPoint!.x) <= MaxX) )
+                       && ( (MinY <= (startPoint!.y) && (startPoint!.y) <= MaxY) ) {
+                    print("Inside of  banana")
+                        isImageInsidebanana = true
+                        isImageInsidecherry = false
+                        isImageInsibeIce = false
+                        isImageInsideninjin = false
+                    
+                    print("deltaX: \(String(describing: deltaX))")
+                    print("deltaY: \(String(describing: deltaY))")
+                }
+               
+            
+            
+            
+        }
         // タッチをやり始めた時のイメージの座標を取得
-        bananaImageNowPoint = self.bananaImageView.frame.origin
+        //bananaImageNowPoint = self.bananaImageView.frame.origin
         cherryImageNowPoint = self.cherryImageView.frame.origin
         IceImageNowPoint = self.IceImageView.frame.origin
         ninjinImageNowPoint = self.ninjinImageView.frame.origin
         
-        print("bananaImageNowPoint =\(String(describing: bananaImageNowPoint) )")
+        //print("bananaImageNowPoint =\(String(describing: bananaImageNowPoint) )")
         print("cherryImageNowPoint =\(String(describing: cherryImageNowPoint) )")
         
      
-        //bananaの範囲
+        /*//bananaの範囲
         let MinX = bananaImageNowPoint!.x
         print("MinX =\(MinX)")
         let MaxX = bananaImageNowPoint!.x + self.bananaImageView!.frame.width
@@ -145,7 +176,7 @@ class NextViewController: UIViewController {
         let MinY = bananaImageNowPoint!.y
         print("MinY =\(MinY)")
         let MaxY = bananaImageNowPoint!.y + self.bananaImageView!.frame.height
-        print("MaxY =\(MaxY)")
+        print("MaxY =\(MaxY)")*/
         
         
         //cherrryの範囲
@@ -167,7 +198,7 @@ class NextViewController: UIViewController {
         let MaxY4 = ninjinImageNowPoint!.y + self.ninjinImageView!.frame.height
         
         
-        //  bananaイメージの範囲内をタッチした時のみisImageInsideをtrueにする
+        /*//  bananaイメージの範囲内をタッチした時のみisImageInsideをtrueにする
             if  ( (MinX <= (startPoint!.x) && (startPoint!.x) <= MaxX) )
                    && ( (MinY <= (startPoint!.y) && (startPoint!.y) <= MaxY) ) {
                 print("Inside of  banana")
@@ -179,10 +210,10 @@ class NextViewController: UIViewController {
                 print("deltaX: \(String(describing: deltaX))")
                 print("deltaY: \(String(describing: deltaY))")
             }
-           
+           */
         
         // cherryイメージの範囲内をタッチした時のみisImageInsideをtrueにする
-            else if ((MinX2 <= (startPoint!.x) && (startPoint!.x) <= MaxX2) && (MinY2 <= (startPoint!.y) && (startPoint!.y) <= MaxY2)){
+            if ((MinX2 <= (startPoint!.x) && (startPoint!.x) <= MaxX2) && (MinY2 <= (startPoint!.y) && (startPoint!.y) <= MaxY2)){
                    // print("Inside of cherry")
                     isImageInsidecherry = true
                     isImageInsidebanana = false
@@ -351,12 +382,12 @@ class NextViewController: UIViewController {
         let mouthMaxX = mouthPoint!.x + self.mouth!.frame.width
         let mouthMinY = mouthPoint!.y
         let mouthMaxY = mouthPoint!.y + self.mouth!.frame.height
-        /*
+        
         // パターン1 if bananaがmouthと重なった場合、imageが消える。
-        if ((mouthMinX <= (location!.x) && (location!.x) <= mouthMaxX) && (mouthMinY <= (location!.y) && (location!.y) <= mouthMaxY)) {
+        if ((location != nil) && ((mouthMinX <= (location!.x) && (location!.x) <= mouthMaxX) && (mouthMinY <= (location!.y) && (location!.y) <= mouthMaxY))) {
                 // 消したいFrameと重なっている場合
                 bananaImageView.removeFromSuperview()
-            }*/
+            }
         /*パターン２　消したいフレームと重なると消える。
         if let rect = removeRect where CGRectIntersectsRect() {
                   // 消したいFrameと重なっている場合
