@@ -172,7 +172,7 @@ class NextViewController: UIViewController {
                     }
                 
             }
-            else if cherryImageView != nil{
+            if cherryImageView != nil{
                 cherryImageNowPoint = self.cherryImageView.frame.origin
                 print("cherryImageNowPoint =\(String(describing: cherryImageNowPoint) )")
                 
@@ -196,7 +196,7 @@ class NextViewController: UIViewController {
                     
             }
         
-            else if IceImageView != nil{
+            if IceImageView != nil{
                 IceImageNowPoint = self.IceImageView.frame.origin
                 
                 //iceの範囲
@@ -218,7 +218,7 @@ class NextViewController: UIViewController {
             }
             
             
-            else if ninjinImageView != nil {
+            if ninjinImageView != nil {
                 ninjinImageNowPoint = self.ninjinImageView.frame.origin
                 
                 //ninjinの範囲
@@ -239,7 +239,7 @@ class NextViewController: UIViewController {
             }
             
         
-            else if onigiriImageView != nil {
+            if onigiriImageView != nil {
                     onigiriImageNowPoint = self.onigiriImageView.frame.origin
                     
                     let MinX5 = onigiriImageNowPoint!.x
@@ -258,7 +258,7 @@ class NextViewController: UIViewController {
                     }
                 
                 }
-            else if tomatoImageView != nil {
+            if tomatoImageView != nil {
                 tomatoImageImageNowPoint = self.tomatoImageView.frame.origin
                 
                 let MinX6 = tomatoImageImageNowPoint!.x
@@ -415,7 +415,7 @@ class NextViewController: UIViewController {
         
 
         
-         else if isImageInsidecherry == true {
+         if isImageInsidecherry == true {
              
              // タッチ中の座標を取得
             let touch: UITouch = touches.first!
@@ -439,7 +439,7 @@ class NextViewController: UIViewController {
             }
         
         
-        else if isImageInsibeIce == true {
+        if isImageInsibeIce == true {
             
             // タッチ中の座標を取得
            let touch: UITouch = touches.first!
@@ -463,7 +463,7 @@ class NextViewController: UIViewController {
         
         
         
-        else if isImageInsideninjin == true {
+        if isImageInsideninjin == true {
             
             // タッチ中の座標を取得
            let touch: UITouch = touches.first!
@@ -485,7 +485,7 @@ class NextViewController: UIViewController {
             
            }
         
-        else if isImageInsideonigiri == true {
+        if isImageInsideonigiri == true {
             
             // タッチ中の座標を取得
            let touch: UITouch = touches.first!
@@ -506,7 +506,7 @@ class NextViewController: UIViewController {
            }
         
         
-        else if isImageInsidetomato == true {
+        if isImageInsidetomato == true {
             
             // タッチ中の座標を取得
            let touch: UITouch = touches.first!
