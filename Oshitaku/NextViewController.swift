@@ -91,15 +91,15 @@ class NextViewController: UIViewController {
         
 
         // 画像のフレームを設定
-        bananaImageView.frame = CGRect(x:50, y:150, width:100, height:100)
-        cherryImageView.frame = CGRect(x:250, y:150, width:100, height:100)
-        IceImageView.frame = CGRect(x:50, y:300, width:100, height:100)
-        ninjinImageView.frame = CGRect(x:50, y: 450, width:100, height:100)
-        onigiriImageView.frame = CGRect(x:250, y:300, width:100, height:100)
-        tomatoImageView.frame = CGRect(x:250, y: 450, width:100, height:100)
+        bananaImageView.frame = CGRect(x:50, y:100, width:100, height:100)
+        cherryImageView.frame = CGRect(x:250, y:100, width:100, height:100)
+        IceImageView.frame = CGRect(x:50, y:220, width:100, height:100)
+        ninjinImageView.frame = CGRect(x:50, y: 330, width:100, height:100)
+        onigiriImageView.frame = CGRect(x:250, y:220, width:100, height:100)
+        tomatoImageView.frame = CGRect(x:250, y: 330, width:100, height:100)
         
         
-        mouth.frame = CGRect(x: 99, y: 610, width: 240, height: 128)
+        mouth.frame = CGRect(x: 95, y: 450, width: 240, height: 128)
         
         
         
@@ -278,87 +278,7 @@ class NextViewController: UIViewController {
             }
             
         
-        
-        /*
-        // タッチをやり始めた時のイメージの座標を取得
-        bananaImageNowPoint = self.bananaImageView.frame.origin
-        cherryImageNowPoint = self.cherryImageView.frame.origin
-        IceImageNowPoint = self.IceImageView.frame.origin
-        ninjinImageNowPoint = self.ninjinImageView.frame.origin
-        
-        //print("bananaImageNowPoint =\(String(describing: bananaImageNowPoint) )")
-        print("cherryImageNowPoint =\(String(describing: cherryImageNowPoint) )")
-        
-     
-        /*//bananaの範囲
-        let MinX = bananaImageNowPoint!.x
-        print("MinX =\(MinX)")
-        let MaxX = bananaImageNowPoint!.x + self.bananaImageView!.frame.width
-        print("MaxX =\(MaxX)")
-        let MinY = bananaImageNowPoint!.y
-        print("MinY =\(MinY)")
-        let MaxY = bananaImageNowPoint!.y + self.bananaImageView!.frame.height
-        print("MaxY =\(MaxY)")*/
-        
-        
-        //cherrryの範囲
-        let MinX2 = cherryImageNowPoint!.x
-        let MaxX2 = cherryImageNowPoint!.x + self.cherryImageView!.frame.width
-        let MinY2 = cherryImageNowPoint!.y
-        let MaxY2 = cherryImageNowPoint!.y + self.cherryImageView!.frame.height
-        
-        //iceの範囲
-        let MinX3 = IceImageNowPoint!.x
-        let MaxX3 = IceImageNowPoint!.x + self.IceImageView!.frame.width
-        let MinY3 = IceImageNowPoint!.y
-        let MaxY3 = IceImageNowPoint!.y + self.IceImageView!.frame.height
-        
-        //ninjinの範囲
-        let MinX4 = ninjinImageNowPoint!.x
-        let MaxX4 = ninjinImageNowPoint!.x + self.ninjinImageView!.frame.width
-        let MinY4 = ninjinImageNowPoint!.y
-        let MaxY4 = ninjinImageNowPoint!.y + self.ninjinImageView!.frame.height
-        
-        
-        /*//  bananaイメージの範囲内をタッチした時のみisImageInsideをtrueにする
-            if  ( (MinX <= (startPoint!.x) && (startPoint!.x) <= MaxX) )
-                   && ( (MinY <= (startPoint!.y) && (startPoint!.y) <= MaxY) ) {
-                print("Inside of  banana")
-                    isImageInsidebanana = true
-                    isImageInsidecherry = false
-                    isImageInsibeIce = false
-                    isImageInsideninjin = false
-                
-                print("deltaX: \(String(describing: deltaX))")
-                print("deltaY: \(String(describing: deltaY))")
-            }
-           */
-        
-        // cherryイメージの範囲内をタッチした時のみisImageInsideをtrueにする
-            if ((MinX2 <= (startPoint!.x) && (startPoint!.x) <= MaxX2) && (MinY2 <= (startPoint!.y) && (startPoint!.y) <= MaxY2)){
-                   // print("Inside of cherry")
-                    isImageInsidecherry = true
-                    isImageInsidebanana = false
-                    isImageInsibeIce = false
-                    isImageInsideninjin = false
-            
-                }
-        
-            else if((MinX3 <= (startPoint!.x) && (startPoint!.x) <= MaxX3) && (MinY3 <= (startPoint!.y) && (startPoint!.y) <= MaxY3)){
-                // print("Inside of ice")
-                isImageInsibeIce = true
-                isImageInsidebanana = false
-                isImageInsidecherry = false
-                isImageInsideninjin = false
-            }
-                
-            else if((MinX4 <= (startPoint!.x) && (startPoint!.x) <= MaxX4) && (MinY4 <= (startPoint!.y) && (startPoint!.y) <= MaxY4)){
-                print("Inside of ninjin")
-                isImageInsideninjin = true
-                isImageInsibeIce = false
-                isImageInsidebanana = false
-                isImageInsidecherry = false
-            }*/
+
 
     
     
@@ -551,24 +471,25 @@ class NextViewController: UIViewController {
         // パターン1 if bananaがmouthと重なった場合、imageが消える。
         if ((location != nil) && ((mouthMinX <= (location!.x) && (location!.x) <= mouthMaxX) && (mouthMinY <= (location!.y) && (location!.y) <= mouthMaxY))) {
                 // 消したいFrameと重なっている場合
-            if bananaImageView != nil{
+            if isImageInsidebanana == true {
                 bananaImageView.removeFromSuperview()}
-            else if cherryImageView != nil{
+            
+            if isImageInsidecherry == true {
                 cherryImageView.removeFromSuperview()
             }
             
-            else if IceImageView != nil{
+            if isImageInsibeIce == true {
                 IceImageView.removeFromSuperview()
             }
-            else if ninjinImageView != nil{
+            if isImageInsideninjin == true {
                 ninjinImageView.removeFromSuperview()
             }
             
-            else if onigiriImageView != nil{
+            if isImageInsideonigiri == true {
                 onigiriImageView.removeFromSuperview()
             }
             
-            else if tomatoImageView != nil{
+            if isImageInsidetomato == true {
                 tomatoImageView.removeFromSuperview()
             }
             
