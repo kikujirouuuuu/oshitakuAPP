@@ -7,11 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITextFieldDelegate {
 
 
 
     @IBOutlet weak var NichigetuLabel: UILabel!
+    
+    
+    @IBOutlet weak var user1: UICommand!
     
     let image1 = UIImage(named:"banana")
     let image2 = UIImage(named:"cherry")
@@ -39,6 +42,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         NichigetuLabel.text = getToday(format: "yyyy年MM月dd日")//引数（何を呼ぶか）
         
+        title = ""
         
     }
     //メソッド関数　実際に何をするか（機能をまとめる）
@@ -48,6 +52,14 @@ class ViewController: UIViewController {
             formatter.dateFormat = format
             return formatter.string(from: now as Date)
         }
+    
+
+    
+    
+    
+    
+    
+    
     
     @IBAction func TouchohayouButton(_ sender: Any) {
         //print("おはよう")
@@ -76,11 +88,20 @@ class ViewController: UIViewController {
         gohanButton.setImage(UIImage(named:"tomato"), for: .normal)
     }
     
-
+    
+    
+    @IBAction func returnTop(segue: UIStoryboardSegue) {
+        
+        ohyouButton.setImage(UIImage(named:"ohayou"), for: .normal)
+        okigaeButton.setImage(UIImage(named:"okigae"), for: .normal)
+        toileButton.setImage(UIImage(named:"toile"), for: .normal)
+        hamigakiButton.setImage(UIImage(named:"hamigaki"), for: .normal)
+        kenonButton.setImage(UIImage(named:"kenon"), for: .normal)
+        gohanButton.setImage(UIImage(named:"gohan"), for: .normal)
+        
+        
+    }
     
 }
-
-
-
 
 

@@ -14,6 +14,8 @@ class ThirdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
+        
         print("test")
         let timer = Timer.scheduledTimer(
             timeInterval: 3,

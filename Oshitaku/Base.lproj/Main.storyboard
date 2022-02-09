@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gYY-xR-7Ma">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -12,9 +12,9 @@
         <!--Third View Controller-->
         <scene sceneID="q1u-0Y-Ha4">
             <objects>
-                <viewController id="RDm-1p-9Wu" customClass="ThirdViewController" customModule="Oshitaku" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="RDm-1p-9Wu" customClass="ThirdViewController" customModule="Oshitaku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A8b-Z2-PqM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="images20200413162650" translatesAutoresizingMaskIntoConstraints="NO" id="XoY-nk-Fme">
@@ -41,7 +41,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ofR-g9-Dbq"/>
                     <connections>
-                        <segue destination="Ocn-QD-VKx" kind="presentation" identifier="toForth" id="PsT-49-2pM"/>
+                        <segue destination="Ocn-QD-VKx" kind="push" identifier="toForth" id="PsT-49-2pM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BaB-oe-POp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -53,7 +53,7 @@
             <objects>
                 <viewController id="Ocn-QD-VKx" customClass="ForthViewController" customModule="Oshitaku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7sj-Ay-HGl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="usagi" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-Ce-0yC">
@@ -78,18 +78,20 @@
                                     <color key="baseForegroundColor" systemColor="systemTealColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="modoruButton:" destination="Ocn-QD-VKx" eventType="touchUpInside" id="WqV-Zr-0AI"/>
+                                    <segue destination="DQA-s8-7Ei" kind="unwind" unwindAction="returnTopWithSegue:" id="L6o-Cn-T0P"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ICV-IF-j4x"/>
                         <color key="backgroundColor" red="0.96848052740000001" green="0.91410398829999995" blue="0.67861063210000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Ouc-on-Wow"/>
                     <connections>
                         <outlet property="animalImageView" destination="n3p-Ce-0yC" id="zPi-oV-dq9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YqD-jO-avK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="DQA-s8-7Ei" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="766.66666666666674" y="748.66071428571422"/>
         </scene>
@@ -123,7 +125,7 @@
                                 <rect key="frame" x="58" y="336" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image=" toile" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="toile" title=""/>
                                 <connections>
                                     <action selector="toileButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fbn-kg-UCt"/>
                                 </connections>
@@ -153,7 +155,6 @@
                                 <buttonConfiguration key="configuration" style="plain" image="gohan" title=""/>
                                 <connections>
                                     <action selector="gohanButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bHT-gX-CIO"/>
-                                    <action selector="kenonButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wM4-dD-RYY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMi-W3-uTh">
@@ -165,7 +166,7 @@
                                         <command title="Item 2" id="Cwg-6D-GRg"/>
                                     </children>
                                 </menu>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="ゲストさん"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kys-gX-O0P">
                                 <rect key="frame" x="108" y="53" width="180" height="44"/>
@@ -192,15 +193,14 @@
                                     <color key="baseForegroundColor" systemColor="systemTealColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="gYY-xR-7Ma" kind="popoverPresentation" popoverAnchorView="5ks-tk-Gbo" id="j0s-Sg-ntO">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="gYY-xR-7Ma" kind="push" id="Aqi-Pl-54T"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.96848052740097046" green="0.91410398832814932" blue="0.67861063210718042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="zBd-7t-OeG"/>
                     <connections>
                         <outlet property="NichigetuLabel" destination="kys-gX-O0P" id="PCk-26-hpz"/>
                         <outlet property="gohanButton" destination="bEx-fX-FNp" id="gmY-Nb-zDJ"/>
@@ -209,38 +209,31 @@
                         <outlet property="ohyouButton" destination="C05-Pn-5a5" id="CbD-En-m8u"/>
                         <outlet property="okigaeButton" destination="ThO-rS-CnD" id="tNy-zQ-6Z3"/>
                         <outlet property="toileButton" destination="Inm-bf-dbX" id="bEZ-6y-Nlv"/>
+                        <outlet property="user1" destination="Xk0-mv-Lmq" id="Kce-p2-TeH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="79.6875"/>
+            <point key="canvasLocation" x="928.98550724637687" y="79.6875"/>
         </scene>
         <!--Next View Controller-->
         <scene sceneID="qlc-Aj-Jdc">
             <objects>
-                <viewController id="gYY-xR-7Ma" customClass="NextViewController" customModule="Oshitaku" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="gYY-xR-7Ma" customClass="NextViewController" customModule="Oshitaku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qn3-pD-fLN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mouth" translatesAutoresizingMaskIntoConstraints="NO" id="kPS-zn-ijg">
-                                <rect key="frame" x="87" y="439" width="240" height="128"/>
+                                <rect key="frame" x="87" y="467" width="240" height="136"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="ice" translatesAutoresizingMaskIntoConstraints="NO" id="MyT-yu-lff">
                                 <rect key="frame" x="62" y="197" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="ninjin" translatesAutoresizingMaskIntoConstraints="NO" id="4PI-8k-y5H">
-                                <rect key="frame" x="62" y="343" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="onigiri" translatesAutoresizingMaskIntoConstraints="NO" id="geK-Nd-5vD">
-                                <rect key="frame" x="239" y="197" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="cherry" translatesAutoresizingMaskIntoConstraints="NO" id="UvW-WQ-AMA">
-                                <rect key="frame" x="239" y="85" width="100" height="100"/>
+                                <rect key="frame" x="79" y="343" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="tomato" translatesAutoresizingMaskIntoConstraints="NO" id="cg1-Mu-END">
@@ -251,8 +244,8 @@
                                 <rect key="frame" x="62" y="85" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="おくち に たべもの をはこんでね" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kf1-9A-PiX">
-                                <rect key="frame" x="79" y="56" width="256" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="おくち に はこんでね" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kf1-9A-PiX">
+                                <rect key="frame" x="79" y="56" width="165" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -269,9 +262,17 @@
                                     <color key="baseForegroundColor" systemColor="systemTealColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="RDm-1p-9Wu" kind="show" id="sd5-nc-67o"/>
+                                    <segue destination="RDm-1p-9Wu" kind="push" id="7To-Ev-rcN"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="ninjin" translatesAutoresizingMaskIntoConstraints="NO" id="4PI-8k-y5H">
+                                <rect key="frame" x="235" y="197" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="cherry" translatesAutoresizingMaskIntoConstraints="NO" id="UvW-WQ-AMA">
+                                <rect key="frame" x="235" y="89" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KpJ-SH-TJj"/>
                         <color key="backgroundColor" red="0.96848052740000001" green="0.91410398829999995" blue="0.67861063210000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -289,11 +290,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZN-SC-bFm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="676.81159420289862" y="91.741071428571431"/>
+            <point key="canvasLocation" x="1692.753623188406" y="79.6875"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3Zg-Bj-xry">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Ev-jZ-mUe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Nu-af-ngv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Cyd-4z-62W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="By6-8G-ETl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="79.6875"/>
         </scene>
     </scenes>
     <resources>
-        <image name=" toile" width="86" height="86"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="banana" width="100" height="100"/>
         <image name="cherry" width="100" height="100"/>
@@ -307,6 +325,7 @@
         <image name="ohayou" width="86" height="86"/>
         <image name="okigae" width="86" height="86"/>
         <image name="onigiri" width="100" height="100"/>
+        <image name="toile" width="86" height="86"/>
         <image name="tomato" width="100" height="100"/>
         <image name="usagi" width="300" height="300"/>
         <systemColor name="secondarySystemGroupedBackgroundColor">

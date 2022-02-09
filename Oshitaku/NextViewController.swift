@@ -78,10 +78,13 @@ class NextViewController: UIViewController {
     
     var removeRect: CGRect!
     
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         
        // bananaImageView.image = UIImage(named: "banana")
        // cherryImageView.image = UIImage(named:"cherry")
@@ -94,8 +97,8 @@ class NextViewController: UIViewController {
         bananaImageView.frame = CGRect(x:50, y:100, width:100, height:100)
         cherryImageView.frame = CGRect(x:250, y:100, width:100, height:100)
         IceImageView.frame = CGRect(x:50, y:220, width:100, height:100)
-        ninjinImageView.frame = CGRect(x:50, y: 330, width:100, height:100)
-        onigiriImageView.frame = CGRect(x:250, y:220, width:100, height:100)
+        onigiriImageView.frame = CGRect(x:50, y: 330, width:100, height:100)
+        ninjinImageView.frame = CGRect(x:250, y:220, width:100, height:100)
         tomatoImageView.frame = CGRect(x:250, y: 330, width:100, height:100)
         
         
@@ -137,6 +140,8 @@ class NextViewController: UIViewController {
         
         print("startPont.x=\(startPoint!.x)")
         print("startPont.y=\(startPoint!.y)")        //println("startPoint =\(startPoint)")
+        
+
         
         
     
@@ -431,7 +436,7 @@ class NextViewController: UIViewController {
             // タッチ中の座標を取得
            let touch: UITouch = touches.first!
            let location6: CGPoint = touch.location(in: self.view)
-            print("onigiriタッチ")
+            print("tomatoタッチ")
             print("location6 =\(location6)")
             
             // 移動量を計算
@@ -468,8 +473,44 @@ class NextViewController: UIViewController {
         let mouthMinY = mouthPoint!.y
         let mouthMaxY = mouthPoint!.y + self.mouth!.frame.height
         
+        
+        if isImageInsidebanana == true{
+            if ((mouthMinX <= (bananaImageNowPoint!.x + self.bananaImageView!.frame.width)) && (mouthMinY <= (bananaImageNowPoint!.y + self.bananaImageView!.frame.height)) || (mouthMaxX <= (bananaImageNowPoint!.x))&&(mouthMinY <= (bananaImageNowPoint!.y + self.bananaImageView!.frame.height))) {
+                bananaImageView.removeFromSuperview()}
+            
+        }
+        
+        if isImageInsidecherry == true {
+            if ((mouthMinX <= (cherryImageNowPoint!.x + self.cherryImageView!.frame.width)) && (mouthMinY <= (cherryImageNowPoint!.y + self.cherryImageView!.frame.height)) || (mouthMaxX <= (cherryImageNowPoint!.x))&&(mouthMinY <= (cherryImageNowPoint!.y + self.cherryImageView!.frame.height))) {
+                cherryImageView.removeFromSuperview()}
+     
+        }
+        
+        if isImageInsibeIce == true {
+            if ((mouthMinX <= (IceImageNowPoint!.x + self.IceImageView!.frame.width)) && (mouthMinY <= (IceImageNowPoint!.y + self.IceImageView!.frame.height)) || (mouthMaxX <= (IceImageNowPoint!.x))&&(mouthMinY <= (IceImageNowPoint!.y + self.IceImageView!.frame.height))) {
+                IceImageView.removeFromSuperview()}
+        }
+        
+        
+        
+        if isImageInsideonigiri == true {
+            if ((mouthMinX <= (onigiriImageNowPoint!.x + self.onigiriImageView!.frame.width)) && (mouthMinY <= (onigiriImageNowPoint!.y + self.onigiriImageView!.frame.height)) || (mouthMaxX <= (onigiriImageNowPoint!.x))&&(mouthMinY <= (onigiriImageNowPoint!.y + self.onigiriImageView!.frame.height))){
+                onigiriImageView.removeFromSuperview()}
+        }
+        
+        if isImageInsideninjin == true {
+            if ((mouthMinX <= (ninjinImageNowPoint!.x + self.ninjinImageView!.frame.width)) && (mouthMinY <= (ninjinImageNowPoint!.y + self.ninjinImageView!.frame.height)) || (mouthMaxX <= (ninjinImageNowPoint!.x))&&(mouthMinY <= (ninjinImageNowPoint!.y + self.ninjinImageView!.frame.height))){
+                ninjinImageView.removeFromSuperview()}
+        }
+        if isImageInsidetomato == true {
+            if ((mouthMinX <= (tomatoImageImageNowPoint!.x + self.tomatoImageView!.frame.width)) && (mouthMinY <= (tomatoImageImageNowPoint!.y + self.tomatoImageView!.frame.height)) || (mouthMaxX <= (tomatoImageImageNowPoint!.x))&&(mouthMinY <= (tomatoImageImageNowPoint!.y + self.tomatoImageView!.frame.height))){
+                tomatoImageView.removeFromSuperview()}
+        }
+        
+        
+        else{}
         // パターン1 if bananaがmouthと重なった場合、imageが消える。
-        if ((location != nil) && ((mouthMinX <= (location!.x) && (location!.x) <= mouthMaxX) && (mouthMinY <= (location!.y) && (location!.y) <= mouthMaxY))) {
+       /* if ((location != nil) && ((mouthMinX <= (location!.x) && (location!.x) <= mouthMaxX) && (mouthMinY <= (location!.y) && (location!.y) <= mouthMaxY))) {
                 // 消したいFrameと重なっている場合
             if isImageInsidebanana == true {
                 bananaImageView.removeFromSuperview()}
@@ -495,7 +536,7 @@ class NextViewController: UIViewController {
             
             else{}
             
-            }
+            }*/
         /*パターン２　消したいフレームと重なると消える。
         if let rect = removeRect where CGRectIntersectsRect() {
                   // 消したいFrameと重なっている場合

@@ -35,6 +35,8 @@ class ForthViewController: UIViewController {
         // Do any additional setup after loading the view.
         animalImageView.image = [animalimg01, animalimg02, animalimg03,animalimg04,animalimg05,animalimg06,animalimg07,animalimg08,animalimg09,animalimg10,animalimg11,animalimg12,animalimg13].randomElement()!
         print("ランダム")
+        
+
     }
     
 
