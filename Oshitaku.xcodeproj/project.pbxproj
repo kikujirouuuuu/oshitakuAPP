@@ -19,6 +19,7 @@
 		97C4F238273C46D3000EBFA8 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4F237273C46D3000EBFA8 /* NextViewController.swift */; };
 		97C4F23C273C48AF000EBFA8 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4F23B273C48AF000EBFA8 /* ThirdViewController.swift */; };
 		97C4F23E273C4901000EBFA8 /* ForthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4F23D273C4901000EBFA8 /* ForthViewController.swift */; };
+		97CD751D27CDE12C00993ED3 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CD751C27CDE12B00993ED3 /* NameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		97C4F237273C46D3000EBFA8 /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 		97C4F23B273C48AF000EBFA8 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		97C4F23D273C4901000EBFA8 /* ForthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthViewController.swift; sourceTree = "<group>"; };
+		97CD751C27CDE12B00993ED3 /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				978FC2FE2734DF6C00128224 /* AppDelegate.swift */,
 				978FC3002734DF6C00128224 /* SceneDelegate.swift */,
 				978FC3022734DF6C00128224 /* ViewController.swift */,
+				97CD751C27CDE12B00993ED3 /* NameViewController.swift */,
 				978FC3042734DF6C00128224 /* Main.storyboard */,
 				97C4F23D273C4901000EBFA8 /* ForthViewController.swift */,
 				97C4F23B273C48AF000EBFA8 /* ThirdViewController.swift */,
@@ -269,6 +272,7 @@
 			files = (
 				97C4F23E273C4901000EBFA8 /* ForthViewController.swift in Sources */,
 				978FC3032734DF6C00128224 /* ViewController.swift in Sources */,
+				97CD751D27CDE12C00993ED3 /* NameViewController.swift in Sources */,
 				97C4F238273C46D3000EBFA8 /* NextViewController.swift in Sources */,
 				978FC2FF2734DF6C00128224 /* AppDelegate.swift in Sources */,
 				97C4F23C273C48AF000EBFA8 /* ThirdViewController.swift in Sources */,

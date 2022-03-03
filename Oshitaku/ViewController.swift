@@ -14,7 +14,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var NichigetuLabel: UILabel!
     
     
-    @IBOutlet weak var user1: UICommand!
+
     
     let image1 = UIImage(named:"banana")
     let image2 = UIImage(named:"cherry")
@@ -87,6 +87,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBAction func gohanButton(_ sender: Any) {
         gohanButton.setImage(UIImage(named:"tomato"), for: .normal)
     }
+    
+    @IBOutlet weak var UserName: UIMenu!
+    
     
     
     
