@@ -8,9 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController,UITextFieldDelegate {
-
-
-
+    @IBOutlet weak var NameList: UIButton!
+    //名前リストのプロパティ
+    var UserNameList: String="わたし"
+    
+    @IBOutlet weak var NamePopUpList: UIMenu!
+    
     @IBOutlet weak var NichigetuLabel: UILabel!
     
     
@@ -43,6 +46,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
         NichigetuLabel.text = getToday(format: "yyyy年MM月dd日")//引数（何を呼ぶか）
         
         title = ""
+        
+        //Name Listに選択中の名前を表示
         
     }
     //メソッド関数　実際に何をするか（機能をまとめる）
